@@ -1,16 +1,14 @@
-import calendar
-import datetime
-
 from flask import render_template
 
 from app import app
+from app.services import *
 
 
 @app.route('/')
 @app.route('/index')
 def index():
-    now = datetime.datetime.now()
-    month = calendar.month_name[now.month]
-    is_sunday = now.weekday() is 6
-    shopping = False
-    return render_template('index.html', now=now, month=month, shopping=shopping, is_sunday=is_sunday)
+    is_sunday = is_sunday_today()
+    next_sunday = get_next_sunday()
+    month = get_month_name(next_sunday)
+    shopping = is_shopping_day(next_sunday)
+    return render_template('index.html', next_sunday=next_sunday, month=month, shopping=shopping, is_sunday=is_sunday)
