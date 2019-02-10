@@ -1,0 +1,44 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+    Niedziele handlowe {{now.year}}
+{% endblock %}
+
+{% block html_attribs %} lang="pl"{% endblock %}
+
+{% block metas %}
+    <meta charset="UTF-8">
+    <meta name="description" content="Niedziele handlowe {{now.year}}">
+    <meta name="keywords" content="niedziela handlowa, niedziela bez handlu, niedziele handlowe {{now.year}},
+     niedziele handlowe {{month}} {{now.year}}, czy dzisiaj jest niedziela handlowa">
+{% endblock %}
+
+{% block body_attribs %} class="{{ 'bg-green' if shopping else 'bg-red' }}"{% endblock %}
+
+{% block styles %}
+    {{super()}}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/colors.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container container-table">
+    <div class="row vertical-center-row">
+        <div class="text-center col-md-12">
+               {% if is_sunday %}
+               <h2>Czy dzisiaj jest niedziela handlowa?</h2>
+               {% else %}
+               <h2>Czy najbliższa niedziela będzie handlowa?</h2>
+               {% endif %}
+               {% if shopping %}
+               <h1>TAK</h1>
+               <h3>{{now.day}} {{month}} {{now.year}} {{'jest' if is_sunday else 'będzie' }}  niedzielą handlową</h3>
+               {% else %}
+               <h1>NIE</h1>
+               <h3>{{now.day}} {{month}} {{now.year}} nie {{'jest' if is_sunday else 'będzie' }} niedzielą handlową</h3>
+               {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

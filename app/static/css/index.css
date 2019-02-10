@@ -1,0 +1,34 @@
+html, body, .container-table{
+  height: 100%;
+}
+
+.container-table {
+    display: table;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+h1,h2,h3 {
+    text-align: center;
+}
+
+.bg-green {
+    background: var(--color-green);
+}
+.bg-red {
+    background: var(--color-red);
+}
+
+h1 {
+  font-size: 8vw;
+}
+
+h2 {
+  font-size: 4vw;
+}
+
+h3 {
+  font-size: 2vw;
+}
