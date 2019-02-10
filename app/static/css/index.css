@@ -32,3 +32,11 @@ h2 {
 h3 {
   font-size: 2vw;
 }
+
+.fa {
+    font-family: sans-serif, 'FontAwesome'!important;
+}
+
+.mb-4 {
+  margin-bottom: 4vh;
+}

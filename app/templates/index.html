@@ -11,15 +11,34 @@
     <meta name="description" content="Niedziele handlowe {{next_sunday.year}}">
     <meta name="author" content="Kao">
     <meta name="keywords" content="niedziela handlowa, niedziela bez handlu, niedziele handlowe {{next_sunday.year}},
-     niedziele handlowe {{month}} {{next_sunday.year}}, czy dzisiaj jest niedziela handlowa">
+     niedziele handlowe {{month}} {{next_sunday.year}}, czy dzisiaj jest niedziela handlowa, sklepy otwarte">
 {% endblock %}
 
 {% block body_attribs %} class="{{ 'bg-green' if shopping else 'bg-red' }}"{% endblock %}
 
 {% block styles %}
     {{super()}}
-    <link rel="stylesheet" href="{{url_for('static', filename='css/colors.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+    <link rel="stylesheet"  href="{{url_for('static', filename='bower_components/font-awesome/css/all.css')}}" />
+    <link rel="stylesheet"  href="{{url_for('static', filename='bower_components/jssocials/dist/jssocials.css')}}" />
+    <link rel="stylesheet"  href="{{url_for('static', filename='bower_components/jssocials/dist/jssocials-theme-flat.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/colors.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/index.css')}}">
+{% endblock %}
+
+
+{% block scripts %}
+    {{super()}}
+    <script src="{{url_for('static', filename='bower_components/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='bower_components/jssocials/dist/jssocials.js')}}"></script>
+    <script>
+        $("#share").jsSocials({
+            shares: ["facebook", "twitter", "linkedin"],
+            url: "{{request.url}}",
+            text: "Czy dzisiaj jest niedziela handlowa?",
+            shareIn: "popup",
+            showLabel: true
+        });
+    </script>
 {% endblock %}
 
 {% block content %}
@@ -41,5 +60,15 @@
         </div>
     </div>
 </div>
+
+<div class="navbar navbar-fixed-bottom" role="navigation">
+    <div class="container text-center">
+        <div class="text-center col-md-12 mb-4">
+            Podziel się ze znajomymi:
+            <div id="share"></div>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}
