@@ -1,11 +1,12 @@
 html, body, .container-table{
   height: 100%;
+
 }
 
 .container-table {
     display: table;
 }
-.vertical-center-row {
+.main-row {
     display: table-cell;
     vertical-align: middle;
 }
@@ -21,16 +22,42 @@ h1,h2,h3 {
     background: var(--color-red);
 }
 
-h1 {
-  font-size: 8vw;
+@media (max-width:320px) {
+    .main-row {
+      vertical-align: top;
+      padding-top: 30%;
+    }
 }
 
-h2 {
-  font-size: 4vw;
+@media (min-width:321px) and (max-width:1024px) {
+    .main-row {
+      vertical-align: top;
+      padding-top: 30%;
+    }
+    h1 {
+      font-size: 8rem;
+    }
+    h2 {
+      font-size: 4rem;
+    }
+    h3 {
+      font-size: 1.8rem;
+    }
+    body {
+      font-size: 1.8rem;
+    }
 }
 
-h3 {
-  font-size: 2vw;
+@media (min-width:1025px) {
+    h1 {
+      font-size: 16rem;
+    }
+    h2 {
+      font-size: 6rem;
+    }
+    h3 {
+      font-size: 4rem;
+    }
 }
 
 .fa {
