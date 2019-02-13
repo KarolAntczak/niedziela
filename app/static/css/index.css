@@ -1,6 +1,6 @@
 html, body, .container-table{
   height: 100%;
-
+  background: var(--color-grey);
 }
 
 .container-table {
@@ -15,11 +15,11 @@ h1,h2,h3 {
     text-align: center;
 }
 
-.bg-green {
-    background: var(--color-green);
+.text-green {
+    color: var(--color-green);
 }
-.bg-red {
-    background: var(--color-red);
+.text-red {
+    color: var(--color-red);
 }
 
 @media (max-width:320px) {

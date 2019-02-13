@@ -1,0 +1,53 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Niedziele handlowe {{next_sunday.year}}
+{% endblock %}
+
+{% block html_attribs %} lang="pl"{% endblock %}
+
+{% block metas %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Niedziele handlowe {{next_sunday.year}}">
+<meta name="author" content="Kao">
+<meta name="keywords" content="niedziela handlowa, niedziela bez handlu, niedziele handlowe {{next_sunday.year}},
+     niedziele handlowe {{month}} {{next_sunday.year}}, czy dzisiaj jest niedziela handlowa, sklepy otwarte">
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-flat.css"/>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/colors.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/index.css')}}">
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.min.js"></script>
+<script>
+        $("#share").jsSocials({
+            shares: ["facebook", "twitter", "linkedin"],
+            url: "{{request.url}}",
+            text: "Czy dzisiaj jest niedziela handlowa?",
+            shareIn: "popup",
+            showCount: false,
+            showLabel: true
+        });
+
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="navbar navbar-fixed-bottom" role="navigation">
+    <div class="container text-center">
+        <div class="text-center col-md-12 mb-4">
+            Podziel się ze znajomymi:
+            <div id="share"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
