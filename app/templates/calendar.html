@@ -1,10 +1,24 @@
 {% extends "base.html" %}
 
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/calendar.css')}}">
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+<script src="{{url_for('static', filename='js/calendar.js')}}"></script>
+<script>
+   $("#calendar").calendar();
+</script>
+{% endblock %}
+
 {% block content %}
 <div class="container container-table">
     <div class="row main-row">
         <div class="text-center col-md-12">
-           <h2>A tu będzie kalendarz</h2>
+            <h2>Kalendarz niedziel handlowych {{next_sunday.year}}</h2>
+            <div id="calendar"></div>
         </div>
     </div>
 </div>

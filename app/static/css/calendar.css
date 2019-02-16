@@ -1,0 +1,86 @@
+.calendar {
+  width:50vw;
+  background-color: var(--color-grey);
+  color: var(--color-light-grey);
+  border-radius: 12px;
+  overflow:hidden;
+  display:block;
+  margin:10vh auto;
+}
+
+.calendar-days {
+  padding:0 10px 10px 10px;
+  box-sizing:border-box!important;
+}
+
+.calendar-title {
+  font-size:3vw;
+  font-weight:700;
+  display:block;
+  margin:18px 0 0 0;
+  text-align:center;
+  letter-spacing:1px;
+}
+
+.calendar-days span {
+  font-size:2vw;
+  text-align:center;
+  width: 5vw;;
+  height: 3.4vw;
+  display:inline-block;
+  overflow:hidden;
+  line-height: 3.4vw;
+}
+
+.arrow {
+  width: 4vw;
+  height: 4vw;
+  font-size:3vw;
+  background-color:transparent;
+  padding-top:0;
+  padding-bottom:0;
+  color:var(--color-light-grey);
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.arrow:active {
+  color:var(--color-dark-grey);
+}
+
+.arrow:focus, .arrow:active, .arrow:hover {
+  outline:0;
+}
+
+.arrow-left {
+  float: left;
+}
+
+.arrow-right {
+  float: right;
+}
+
+.circle {
+  box-sizing:border-box!important;
+  border: solid 2px;
+  border-radius: 12px;
+  height:100px;
+  width:100px;
+}
+
+span[data-title]:hover:after,
+div[data-title]:hover:after {
+  font-size:1vw;
+  content:attr(data-title);
+  position:absolute;
+  background:var(--color-dark-grey);
+  border-radius: 5px;
+  padding:0vw 2vw 0vw 2vw;
+  z-index:9999;
+  animation: fadein 0.5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

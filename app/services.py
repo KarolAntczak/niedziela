@@ -37,3 +37,17 @@ def is_shopping_day(d):
                  }).count(with_limit_and_skip=True) > 0
     print(is_shopping)
     return is_shopping
+
+
+def get_working_sundays(year, month):
+    year = int(year)
+    month = int(month)
+    startDate = datetime.datetime(year=year, month=month, day=1)
+    endDate = datetime.datetime(year=year, month=month, day=calendar.monthrange(year, month)[1])
+    working_sundays = mongo.db.working_sundays.find({"date":  {
+                         "$gte": startDate,
+                          "$lt": endDate},
+                 },
+        {"date": True, "_id": 0})
+    return list(working_sundays)
+

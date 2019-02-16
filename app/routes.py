@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request, jsonify
 
 from app import app
 from app.services import *
@@ -18,3 +18,10 @@ def index():
 def calendar():
     next_sunday = get_next_sunday()
     return render_template('calendar.html', next_sunday=next_sunday)
+
+@app.route('/working-sundsays')
+def workingSundays():
+    year = request.args.get('year')
+    month = request.args.get('month')
+    workingSundays = get_working_sundays(year, month)
+    return jsonify(workingSundays)
