@@ -32,7 +32,6 @@ h1,h2,h3 {
 @media (min-width:321px) and (max-width:1024px) {
     .main-row {
       vertical-align: top;
-      padding-top: 10%;
     }
     h1 {
       font-size: 8rem;
