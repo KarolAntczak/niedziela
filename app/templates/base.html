@@ -52,12 +52,18 @@ Niedziele handlowe {{next_sunday.year}}
 {% endblock %}
 
 {% block content %}
+
+
 <div class="navbar navbar-fixed-bottom" role="navigation">
     <div class="container text-center">
+        {% block footer %}
+        {% endblock %}
         <div class="text-center col-md-12 mb-4">
             Podziel się ze znajomymi:
             <div id="share"></div>
         </div>
     </div>
 </div>
+
 {% endblock %}
+

@@ -15,7 +15,7 @@
 
 {% block content %}
 <div class="container container-table">
-    <div class="row main-row">
+    <div class="row">
         <div class="text-center col-md-12">
             <h2>Kalendarz niedziel handlowych {{next_sunday.year}}</h2>
             <div id="calendar"></div>
@@ -25,4 +25,10 @@
 
 {{super()}}
 
+{% endblock %}
+
+{% block footer %}
+<div class="row mb-4">
+    <a href="/">Czy dzisiaj jest niedziela handlowa? </a>
+</div>
 {% endblock %}

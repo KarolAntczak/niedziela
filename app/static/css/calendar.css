@@ -5,7 +5,7 @@
   border-radius: 12px;
   overflow:hidden;
   display:block;
-  margin:10vh auto;
+  margin:4vh auto;
 }
 
 .calendar-days {
@@ -25,16 +25,22 @@
 .calendar-days span {
   font-size:2vw;
   text-align:center;
-  width: 5vw;;
-  height: 3.4vw;
+  width: 5vw;
+  height: 3vw;
   display:inline-block;
   overflow:hidden;
-  line-height: 3.4vw;
+  line-height: 3vw;
 }
 
+
+@media (max-width:1024px) {
+  .calendar-days span {
+        font-size:3vw;
+  }
+}
+
+
 .arrow {
-  width: 4vw;
-  height: 4vw;
   font-size:3vw;
   background-color:transparent;
   padding-top:0;
