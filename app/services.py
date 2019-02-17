@@ -43,7 +43,7 @@ def get_working_sundays(year, month):
     year = int(year)
     month = int(month)
     startDate = datetime.datetime(year=year, month=month, day=1)
-    endDate = datetime.datetime(year=year, month=month, day=calendar.monthrange(year, month)[1])
+    endDate = datetime.datetime(year=year, month=month, day=calendar.monthrange(year, month)[1], hour=23, minute=59, second=59)
     working_sundays = mongo.db.working_sundays.find({"date":  {
                          "$gte": startDate,
                           "$lt": endDate},
